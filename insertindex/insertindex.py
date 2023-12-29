@@ -1,7 +1,7 @@
 import glob
 import json
 from opensearchpy import OpenSearch
-import sys
+import time
 
 jsonl_files = glob.glob("jawiki.json/**/wiki_*")
 
@@ -22,6 +22,7 @@ client = OpenSearch(
 
 id=1
 
+start = time.time()
 for jsonl_file in jsonl_files:
     with open(jsonl_file, 'r') as file:
         for line in file:
@@ -42,3 +43,6 @@ for jsonl_file in jsonl_files:
                 id += 1
             except json.JSONDecodeError:
                 print("invalid json")
+end = time.time()
+time_diff = end - start
+print(time_diff)

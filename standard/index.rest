@@ -1,0 +1,21 @@
+###
+DELETE http://localhost:9200/tokenize-memory-test
+
+###
+PUT http://localhost:9200/tokenize-memory-test
+Content-Type: application/json
+
+{
+  "mappings": {
+    "properties": {
+      "title": {
+        "type": "text",
+        "analyzer": "standard"
+      },
+      "text": {
+        "type": "text",
+        "analyzer": "standard"
+      }
+    }
+  }
+}

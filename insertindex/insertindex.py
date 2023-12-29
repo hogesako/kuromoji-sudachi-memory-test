@@ -38,8 +38,9 @@ for jsonl_file in jsonl_files:
                     refresh = False
                 )
                 print(wikiObj['title'])
+                print(len(wikiObj['text']))
                 id += 1
-                if id > 21:
+                if id > 40:
                     sys.exit()
             except json.JSONDecodeError:
                 print("invalid json")

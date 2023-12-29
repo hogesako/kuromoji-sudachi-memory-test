@@ -1,0 +1,39 @@
+###
+DELETE http://localhost:9200/tokenize-memory-test
+
+###
+PUT http://localhost:9200/tokenize-memory-test
+Content-Type: application/json
+
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "sudachi_analyzer": {
+          "filter": ["sudachi_split", "sudachi_baseform" ],
+          "type": "custom", 
+          "tokenizer": "sudachi"
+        }
+      },
+      "tokenizer": {
+        "sudachi": {
+          "resource_path": "/usr/share/opensearch/config/sudachi",
+          "type": "sudachi_tokenizer",
+          "discard_punctuation": "true"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "title": {
+        "type": "text",
+        "analyzer": "sudachi_analyzer"
+      },
+      "text": {
+        "type": "text",
+        "analyzer": "sudachi_analyzer"
+      }
+    }
+  }
+}

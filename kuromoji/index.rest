@@ -1,0 +1,39 @@
+###
+DELETE http://localhost:9200/tokenize-memory-test
+
+###
+PUT http://localhost:9200/tokenize-memory-test
+Content-Type: application/json
+
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "kuromoji_analyzer": {
+          "filter": ["kuromoji_baseform"],
+          "type": "custom", 
+          "tokenizer": "kuromoji"
+        }
+      },
+      "tokenizer": {
+        "kuromoji": {
+          "type": "kuromoji_tokenizer",
+          "mode": "search",
+          "discard_punctuation": "true"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "title": {
+        "type": "text",
+        "analyzer": "kuromoji_analyzer"
+      },
+      "text": {
+        "type": "text",
+        "analyzer": "kuromoji_analyzer"
+      }
+    }
+  }
+}

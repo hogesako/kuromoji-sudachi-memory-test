@@ -25,10 +25,11 @@ jcmd 105 GC.heap_dump -all heapdmp.hprof
 79250件insert(失敗)
 ### Sudachi
 heap2GBでは、40件insertしたところでcircuit_breaking_exceptionが発生java。
+heap4GBでは、384件insertしたところでcircuit_breaking_exceptionが発生java。
 
 ### kuromoji
 heap2GBでは、509件insertしたところでcircuit_breaking_exceptionが発生。
-
+heap4GBでは、8193件insertしたところでcircuit_breaking_exceptionが発
 
 ## 追加検証
 思ったよりSudachiのcircuit_breaking_exceptionが早かったので、40件入れた状態のメモリ利用量を取得

@@ -19,6 +19,8 @@ client = OpenSearch(
     ssl_show_warn = False
 )
 
+id=1
+
 for jsonl_file in jsonl_files:
     with open(jsonl_file, 'r') as file:
         for line in file:

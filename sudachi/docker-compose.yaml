@@ -6,7 +6,6 @@ services:
     environment:
       - "discovery.type=single-node"
       - bootstrap.memory_lock=false
-      - "OPENSEARCH_JAVA_OPTS=-Xms2048m -Xmx2048m -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC"
       - "DISABLE_SECURITY_PLUGIN=true"
     ulimits:
       memlock:
